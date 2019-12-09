@@ -1,1 +1,18 @@
 /* Add your own CSS code below */
+ul {
+  display: flex;
+}
+.countries--first {
+  flex-direction: row-reverse;
+  padding: 15px 15px 15px 30px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Times New Roman";
+}
+.countries--second {
+  flex-direction: column;
+}
+
+.countries--third {
+  flex-direction: column-reverse;
+}
