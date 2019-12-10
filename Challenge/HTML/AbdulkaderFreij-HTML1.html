@@ -1,0 +1,59 @@
+<header id="ARDUINO">ARDUINO UNO</header>
+<img
+  id="pic"
+  alt="ARDUINO UNO Photo"
+  src="https://static.generation-robots.com/3579-large_default/arduino-uno-rev-3.jpg"
+/>
+<h1>What is Arduino Uno?</h1>
+<p>
+  <strong>Arduino Uno</strong> is a microcontroller board based on the ATmega328
+  (datasheet). It has 14 digital input/output pins
+  <small>(of which 6 can be used as PWM outputs)</small>, 6 analog inputs, a 16
+  MHz ceramic resonator, a USB connection, a power jack, an ICSP header, and a
+  reset button. It contains everything needed to support the microcontroller;
+  simply connect it to a computer with a USB cable or power it with a AC-to-DC
+  adapter or battery to get started.
+</p>
+<h2>How the Arduino Uno is Powered?</h2>
+<p>
+  <strong>Arduino Uno</strong> can be powered via the USB connection or with an
+  external power supply. The power source is selected automatically. External
+  (non-USB) power can come either from an AC-to-DC adapter (wall-wart) or
+  battery. The adapter can be connected by plugging a 2.1mm center-positive plug
+  into the board's power jack. Leads from a battery can be inserted in the Gnd
+  and Vin pin headers of the POWER connector. The board can operate on an
+  external supply of 6 to 20 volts. If supplied with less than 7V, however, the
+  5V pin may supply less than five volts and the board may be unstable. If using
+  more than 12V, the voltage regulator may overheat and damage the board. The
+  recommended range is 7 to 12 volts.
+</p>
+
+<h3><em>Communication</em></h3>
+<p>
+  The <strong><em>Arduino Uno</em></strong> has a number of facilities for
+  communicating with a computer, another Arduino, or other microcontrollers. The
+  ATmega328 provides UART TTL (5V) serial communication, which is available on
+  digital pins 0 (RX) and 1 (TX).<br />
+  An ATmega16U2 on the board channels this serial communication over USB and
+  appears as a virtual com port to software on the computer. <br />The '16U2
+  firmware uses the standard USB COM drivers, and no external driver is needed.
+  However, on Windows, a .inf file is required.<br />
+  The Arduino software includes a serial monitor which allows simple textual
+  data to be sent to and from the Arduino board. <br />The RX and TX LEDs on the
+  board will flash when data is being transmitted via the USB-to-serial chip and
+  USB connection to the computer (but not for serial communication on pins 0 and
+  1).<br />
+  A SoftwareSerial library allows for serial communication on any of the Uno's
+  digital pins. The ATmega328 also supports I2C (TWI) and SPI communication. The
+  Arduino software includes a Wire library to simplify use of the I2C bus; see
+  the documentation for details. For SPI communication, use the SPI library.
+</p>
+
+<footer id="footer">
+  <em
+    ><small
+      >By using this site, you agree to the <q>Terms of Use</q> and
+      <q>Privacy Policy</q></small
+    ></em
+  >
+</footer>
