@@ -1,0 +1,94 @@
+#slogan {
+  margin-top: -20px;
+  font-style: italic;
+  font-family: sans-serif;
+  color: red;
+}
+
+.main-doc {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0;
+  margin: 0;
+  color: white;
+  height: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+body {
+  background-color: rgb(39, 46, 46);
+}
+
+#nav-main {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  top: 0px;
+  height: 30px;
+  background-color: rgba(211, 211, 211, 0.6);
+  padding: 10px 20px 10px 0px;
+  border-bottom: 2px solid black;
+}
+
+#grid {
+  position: relative;
+  display: grid;
+}
+.main_grid {
+  grid-template-columns: 30% auto;
+  display: grid;
+}
+.left {
+  grid-template-rows: 50% auto;
+  display: grid;
+}
+.right {
+  grid-template-rows: 50% auto;
+  display: grid;
+}
+.inner {
+  grid-template-columns: 50% auto;
+  display: grid;
+}
+
+#form {
+  width: 800px;
+  margin: 0 auto;
+  color: white;
+}
+.row {
+  display: block;
+  padding-top: 20px;
+}
+.label {
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+}
+.input {
+  display: inline-block;
+  text-align: left;
+  width: 40%;
+}
+
+.labels {
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+  vertical-align: top;
+}
+
+.input-radio {
+  display: inline-block;
+  text-align: left;
+  width: 40%;
+}
+
+#Contact_Us {
+  color: white;
+  text-align: center;
+}
