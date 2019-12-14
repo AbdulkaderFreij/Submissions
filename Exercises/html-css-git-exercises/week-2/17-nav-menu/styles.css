@@ -1,48 +1,19 @@
 /* Write your media queries and flexbox CSS below */
-
 @media only screen and (min-width: 480px) {
-  .site-header__nav {
-    display: flex;
-  }
-}
-@media only screen and (min-width: 480px) {
-  .site-header__navItem {
-    align-self: flex-start;
-  }
-}
-
-@media only screen and (min-width: 480px) {
-  .site-header__checkout {
-    display: flex;
-    align-self: flex-start;
-  }
-}
-
-@media only screen and (min-width: 700px) {
   .site-header__nav {
     display: flex;
   }
 }
 
 @media only screen and (min-width: 700px) {
-  .site-header__navItem {
+  .site-header {
+    display: flex;
+    flex-direction: row;
     align-self: flex-start;
-  }
-}
-
-@media only screen and (min-width: 700px) {
-  .site-header__checkout {
-    display: flex;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .site-header__nav {
-    display: flex;
   }
 }
 @media only screen and (min-width: 992px) {
-  .site-header__checkout {
-    display: flex;
+  .site-header {
+    justify-content: space-between;
   }
 }

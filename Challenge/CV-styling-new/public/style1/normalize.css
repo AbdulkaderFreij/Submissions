@@ -10,9 +10,9 @@
  */
 
 html {
-  line-height: 1; /* 1 */
-  -ms-text-size-adjust: none; /* 2 */
-  -webkit-text-size-adjust: none; /* 2 */
+  line-height: 1.15; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -23,7 +23,7 @@ html {
  */
 
 body {
-  margin: remove;
+  margin: 0;
 }
 
 /**
@@ -36,7 +36,7 @@ footer,
 header,
 nav,
 section {
-  display: flex;
+  display: block;
 }
 
 /**
@@ -45,8 +45,8 @@ section {
  */
 
 h1 {
-  font-size: 1.5em;
-  margin: 0.67em 5em;
+  font-size: 2em;
+  margin: 0.67em 0;
 }
 
 /* Grouping content
@@ -61,7 +61,7 @@ figcaption,
 figure,
 main {
   /* 1 */
-  display: flex;
+  display: block;
 }
 
 /**
@@ -69,9 +69,7 @@ main {
  */
 
 figure {
-  margin: -6em 25em;
-  height: 100px;
-  width: 100px;
+  margin: 1em 40px;
 }
 
 /**
@@ -80,9 +78,9 @@ figure {
  */
 
 hr {
-  box-sizing: border-box; /* 1 */
-  height: 1px; /* 1 */
-  overflow: hidden; /* 2 */
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
 }
 
 /**
@@ -92,7 +90,7 @@ hr {
 
 pre {
   font-family: monospace, monospace; /* 1 */
-  font-size: 2em; /* 2 */
+  font-size: 1em; /* 2 */
 }
 
 /* Text-level semantics
@@ -104,7 +102,7 @@ pre {
  */
 
 a {
-  background-color: white; /* 1 */
+  background-color: transparent; /* 1 */
   -webkit-text-decoration-skip: objects; /* 2 */
 }
 
