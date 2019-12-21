@@ -1,1 +1,45 @@
 /* Add your own CSS code below */
+#red-heart {
+  color: #c85308;
+}
+
+.hero {
+  position: relative;
+  padding-top: 125px;
+}
+
+@media screen and (min-width: 992px) {
+  .hero__title {
+    font-size: 40px;
+    display: inline;
+  }
+}
+
+.main-nav__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media screen and (min-width: 767px) {
+  .site-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .views {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+h2 {
+  padding-top: 4px;
+  padding-right: 10px;
+}
+.views__all {
+  margin-left: auto;
+}
