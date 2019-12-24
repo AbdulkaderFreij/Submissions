@@ -22,7 +22,7 @@
 }
 
 @media screen and (min-width: 767px) {
-  .site-header {
+  header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -42,4 +42,17 @@ h2 {
 }
 .views__all {
   margin-left: auto;
+}
+
+@media screen and (min-width: 767px) {
+  .view-list__item {
+    margin-right: 20px;
+  }
+}
+
+.main-article {
+  max-width: 50em;
+  align-items: center;
+  justify-content: space-evenly;
+  line-height: 30px;
 }
