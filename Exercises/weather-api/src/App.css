@@ -7,15 +7,117 @@
 .app__header,
 .app__main {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
   font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /*  Search bar */
+.app__header {
+  background-color: #759eda;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+button {
+  height: 40px;
+  width: 150px;
+  background-color: #5879c7;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.findTemp input[type="text"] {
+  margin: 10px;
+  background-color: #759eda;
+  font-family: inherit;
+  font-size: 14px;
+  height: 35px;
+  width: 200px;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid blue;
+}
 
 /* Current weather */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.image-1 {
+  width: 200px;
+  position: relative;
+}
+
+.app {
+  background-color: #9ccef4;
+}
+
+figcaption {
+  color: white;
+}
+
+.temp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.temp h3 {
+  padding-right: 20px;
+}
+
+.pressure {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-2 {
+  width: 100px;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #9ccef4;
+}
+
+.pressure h4,
+.pressure p {
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .forecast,
+  .pressure,
+  .temp .findTemp {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    background-color: #9ccef4;
+  }
+
+  .pressure {
+    background-color: #9ccef4;
+  }
+
+  .app {
+    background-color: #9ccef4;
+  }
+}
