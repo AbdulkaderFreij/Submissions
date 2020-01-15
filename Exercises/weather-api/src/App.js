@@ -17,14 +17,13 @@ class App extends Component {
     const r = await response.json();
     console.log(r);
     //console.log(r.list[0].main.temp);
-    console.log(r.city.name);
-    this.setState({ city: r.city.name });
+    this.setState({ data: r });
   }
   render() {
     return (
       <div className="app">
         <header className="app__header">
-          <Search city={FakeWeather.city.name} />
+          <Search city={this.state.city} />
         </header>
         <main className="app__main">
           <div className="image-container">
