@@ -18,9 +18,13 @@ class App extends Component {
               humidity={FakeWeather.list[0].main.humidity}
               pressure={FakeWeather.list[0].main.pressure}
               temperature={FakeWeather.list[0].main.temp}
+              weather={FakeWeather.list[0].weather[0].main}
             />
             <div className="forecast">
-              <FutureWeather list={FakeWeather.list} />
+              {FakeWeather.list.map((item, value) => {
+                if (value > 0 && value < 8)
+                  return <FutureWeather list={item} />;
+              })}
             </div>
           </div>
         </main>

@@ -85,6 +85,7 @@ figcaption {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: #9ccef4;
 }
 
 .image-2 {
@@ -103,8 +104,7 @@ figcaption {
 .pressure p {
   padding-right: 20px;
 }
-
-@media screen and (max-width: 600px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .forecast,
   .pressure,
   .temp .findTemp {
@@ -115,6 +115,7 @@ figcaption {
 
   .pressure {
     background-color: #9ccef4;
+    border-bottom: 1px dashed blue;
   }
 
   .app {

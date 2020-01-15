@@ -1,16 +1,15 @@
 import React from "react";
 import mostlycloudy from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/mostlycloudy.svg";
-
+import clear from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/clear.svg";
 export default function CurrentWeather(props) {
   return (
     <>
-      {" "}
-      <img className="image-1" src={mostlycloudy} alt="weather-logo" />
-      <figcaption>Overcast Clouds</figcaption>
+      <img className="image-1" src={clear} alt="weather-logo" />
+      <figcaption>{props.weather}</figcaption>
       <div className="currentWeather">
         <div className="temp">
           <h3>Temperature</h3>
-          <p>{props.temperature}</p>
+          <p>{Math.floor(props.temperature - 273.15)}°C</p>
         </div>
         <div className="pressure">
           <h4>Humidity</h4>

@@ -3,7 +3,6 @@ import React from "react";
 export default function Search(props) {
   return (
     <>
-      {" "}
       <form className="findTemp">
         <input
           className="city"
@@ -13,7 +12,7 @@ export default function Search(props) {
         />
         <button type="submit" value="submit">
           Find Weather
-        </button>{" "}
+        </button>
       </form>
     </>
   );
