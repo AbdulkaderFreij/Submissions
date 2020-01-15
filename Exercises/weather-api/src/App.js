@@ -6,6 +6,20 @@ import FutureWeather from "./futureWeather.js";
 import FakeWeather from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/data/FakeWeather.json";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  async componentDidMount() {
+    const response = await fetch(
+      "http://api.openweathermap.org/data/2.5/forecast?q=Beirut&cnt=8&units=metric&appid=0fde7058d03651102c4ab6198ec81304"
+    );
+    const r = await response.json();
+    console.log(r);
+    //console.log(r.list[0].main.temp);
+    console.log(r.city.name);
+    this.setState({ city: r.city.name });
+  }
   render() {
     return (
       <div className="app">
@@ -21,9 +35,8 @@ class App extends Component {
               weather={FakeWeather.list[0].weather[0].main}
             />
             <div className="forecast">
-              {FakeWeather.list.map((item, value) => {
-                if (value > 0 && value < 8)
-                  return <FutureWeather list={item} />;
+              {FakeWeather.list.slice(1, 8).map((item, value) => {
+                return <FutureWeather key={value} list={item} />;
               })}
             </div>
           </div>
