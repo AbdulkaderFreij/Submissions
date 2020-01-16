@@ -7,7 +7,10 @@ export default function CurrentWeather(props) {
       <div className="currentWeather">
         <div className="temp">
           <h3>Temperature</h3>
-          <p>{Math.floor(props.temperature)}°C</p>
+          <p>
+            {Math.round(props.temperature_min)}°C to{" "}
+            {Math.round(props.temperature_max)}°C
+          </p>
         </div>
         <div className="pressure">
           <h4>Humidity</h4>

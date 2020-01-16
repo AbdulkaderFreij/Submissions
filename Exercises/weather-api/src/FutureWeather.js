@@ -7,7 +7,7 @@ export default function FutureWeather(props) {
         {" "}
         <p>{props.list.dt_txt.substring(11, 16)}</p>
         <img src={props.image} alt="weather-logo" />
-        <p> {Math.floor(props.list.main.temp)}°C</p>
+        <p> {Math.round(props.list.main.temp)}°C</p>
       </div>
     </>
   );

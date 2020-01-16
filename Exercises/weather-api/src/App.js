@@ -3,14 +3,14 @@ import "./App.css";
 import Search from "./Search.js";
 import CurrentWeather from "./CurrentWeather.js";
 import FutureWeather from "./FutureWeather.js";
-import mostlycloudy from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/mostlycloudy.svg";
-import clear from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/clear.svg";
+import Mostlycloudy from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/mostlycloudy.svg";
+import Clear from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/clear.svg";
 import Storm from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/storm.svg";
 import Drizzle from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/drizzle.svg";
 import Fog from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/fog.svg";
 import Rain from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/rain.svg";
 import Snow from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/snow.svg";
-import partlycloudy from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/partlycloudy.svg";
+import Partlycloudy from "/home/abdulkader/Documents/week-1/Submissions/Exercises/weather-api/src/img/weather-icons/partlycloudy.svg";
 
 class App extends Component {
   constructor(props) {
@@ -56,21 +56,21 @@ class App extends Component {
     console.log(weather);
     if (weather < 300) {
       return Storm;
-    } else if (weather > 300 && weather < 499) {
+    } else if (weather >= 300 && weather < 499) {
       return Drizzle;
-    } else if (weather > 500 && weather < 599) {
+    } else if (weather >= 500 && weather < 599) {
       return Rain;
-    } else if (weather > 600 && weather < 699) {
+    } else if (weather >= 600 && weather < 699) {
       return Snow;
-    } else if (weather > 700 && weather < 799) {
+    } else if (weather >= 700 && weather <= 799) {
       return Fog;
     } else if (weather === 800) {
-      return clear;
+      return Clear;
     } else if (weather === 801) {
-      return partlycloudy;
+      return Partlycloudy;
     } else if (weather > 801 && weather < 805) {
-      return mostlycloudy;
-    } else return mostlycloudy;
+      return Mostlycloudy;
+    } else return Mostlycloudy;
   };
 
   render() {
@@ -87,7 +87,8 @@ class App extends Component {
               )}
               humidity={this.state.weather.list[0].main.humidity}
               pressure={this.state.weather.list[0].main.pressure}
-              temperature={this.state.weather.list[0].main.temp}
+              temperature_min={this.state.weather.list[0].main.temp_min}
+              temperature_max={this.state.weather.list[0].main.temp_max}
               weather={this.state.weather.list[0].weather[0].main}
             />
             <div className="forecast">
