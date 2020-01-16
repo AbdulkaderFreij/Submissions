@@ -55,36 +55,43 @@ class App extends Component {
   checkWeather = weather => {
     console.log(weather);
     if (weather < 300) {
-      return Storm;
+      return { src: Storm, color: "red" };
     } else if (weather >= 300 && weather < 499) {
-      return Drizzle;
+      return { src: Drizzle, color: "blue" };
     } else if (weather >= 500 && weather < 599) {
-      return Rain;
+      return { src: Rain, color: "red" };
     } else if (weather >= 600 && weather < 699) {
-      return Snow;
+      return { src: Snow, color: "white" };
     } else if (weather >= 700 && weather <= 799) {
-      return Fog;
+      return { src: Fog, color: "lightyellow" };
     } else if (weather === 800) {
-      return Clear;
+      return { src: Clear, color: "yellow" };
     } else if (weather === 801) {
-      return Partlycloudy;
+      return { src: Partlycloudy, color: "gray" };
     } else if (weather > 801 && weather < 805) {
-      return Mostlycloudy;
+      return { src: Mostlycloudy, color: "gray" };
     } else return Mostlycloudy;
   };
 
   render() {
     return this.state.weather.length === 0 ? null : (
-      <div className="app">
+      <div
+        className="app"
+        style={{
+          backgroundColor: this.checkWeather(
+            this.state.weather.list[0].weather[0].id
+          ).color
+        }}
+      >
         <header className="app__header">
           <Search handleInput={this.inputChange} />
         </header>
         <main className="app__main">
           <div className="image-container">
             <CurrentWeather
-              image={this.checkWeather(
-                this.state.weather.list[0].weather[0].id
-              )}
+              image={
+                this.checkWeather(this.state.weather.list[0].weather[0].id).src
+              }
               humidity={this.state.weather.list[0].main.humidity}
               pressure={this.state.weather.list[0].main.pressure}
               temperature_min={this.state.weather.list[0].main.temp_min}
@@ -97,7 +104,7 @@ class App extends Component {
                   <FutureWeather
                     key={value}
                     list={item}
-                    image={this.checkWeather(item.weather[0].id)}
+                    image={this.checkWeather(item.weather[0].id).src}
                   />
                 );
               })}

@@ -85,7 +85,6 @@ figcaption {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #9ccef4;
 }
 
 .image-2 {
@@ -97,7 +96,6 @@ figcaption {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: #9ccef4;
 }
 
 .pressure h4,
