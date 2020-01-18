@@ -32,16 +32,50 @@ Basic Queries:
 
 Creating Table:
 
-CREATE TABLE graduates (ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Name Text Not Null Unique, Age INTEGER, Gender TEXT, Points INTEGER, Graduation TEXT)
+CREATE TABLE graduates (ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Name Text Not Null Unique, Age INTEGER, Gender TEXT, Points INTEGER, Graduation TEXT Date)
 
 1- INSERT INTO graduates (ID, Name, Age, Gender, Points)
-SELECT ID, Name, Age, Gender, Points
-FROM students where ID=4
+   SELECT ID, Name, Age, Gender, Points
+   FROM students where ID=4
 
 2- UPDATE graduates SET Graduation="08/09/2018" WHERE ID=4
 
 3- DELETE FROM students WHERE ID=4
 
 4- COMMITED !!
+
+
+
+
+Joins:
+
+1- CREATE TABLE newTable (Name Text Not Null Unique, Company TEXT, Date INTEGER Not Null)
+   
+   INSERT INTO newTable (Name, Company, Date)
+   SELECT employees.Name, companies.Name, companies.Date 
+   FROM employees JOIN companies
+   ON companies.Name = employees.Company
+
+2- Select Name FROM newTable WHERE Date<2000
+
+
+3- Select Company FROM employees WHERE Role= "Graphic Designer"
+ 
+4- COMMITTED!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
