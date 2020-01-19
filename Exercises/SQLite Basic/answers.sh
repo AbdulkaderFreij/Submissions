@@ -58,15 +58,25 @@ Joins:
 
 2- Select Name FROM newTable WHERE Date<2000
 
-
 3- Select Company FROM employees WHERE Role= "Graphic Designer"
  
 4- COMMITTED!!
 
 
 
+Count & Filter:
 
+1- SELECT * FROM students WHERE Points= (SELECT MAX(Points) FROM students)
 
+2- SELECT avg(Points) FROM students
+
+3- SELECT COUNT(*) FROM students WHERE Points=500
+
+4- SELECT * FROM students WHERE Name like "%s%"
+
+5-SELECT * FROM students ORDER BY Points DESC;
+
+6- COMMITTED!!
 
 
 
