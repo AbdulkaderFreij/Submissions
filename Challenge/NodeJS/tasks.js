@@ -85,9 +85,22 @@ function quit() {
  * @returns {void}
  */
 function help() {
-  var list = "Please enter one of these commands: " + "quit,exit,help,hello";
+  var list =
+    "Please enter one of these commands: " +
+    "\n" +
+    "quit/exit: Exits the program" +
+    "\n" +
+    "help: List all the possible commands" +
+    "\n" +
+    "hello <name>: Return a welcome message depending on the <name> input";
   console.log(list);
 }
 
 // The following line starts the application
 startApp("Abdulkader Freij");
+
+/**
+ *
+ * hello <name> : return a welcome message depending on the <name> input
+ * exit         :
+ */
