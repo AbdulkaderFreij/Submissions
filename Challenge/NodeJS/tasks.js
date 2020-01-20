@@ -112,7 +112,11 @@ function help() {
     "\n" +
     "help: List all the possible commands" +
     "\n" +
-    "hello <name>: Return a welcome message depending on the <name> input";
+    "hello <name>: Return a welcome message depending on the <name> input" +
+    "\n" +
+    "add <x>: Add a task <x> and store it in a list(array)" +
+    "\n" +
+    "remove <number>: Remove a task depending on the <number> input, default remove the last task";
   console.log(list);
 }
 
