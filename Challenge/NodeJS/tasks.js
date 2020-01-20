@@ -139,12 +139,14 @@ function add(x) {
 function remove(x) {
   if (x == 0) {
     list.splice(-1, 1);
+    tasks();
   } else if (x == 1) {
     list.splice(0, 1);
+    tasks();
   } else if (x == 2) {
     list.splice(1, 1);
-  }
-  tasks();
+    tasks();
+  } else console.log("number doesn't exist");
 }
 
 // list.splice(0,1);
