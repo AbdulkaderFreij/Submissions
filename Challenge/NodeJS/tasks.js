@@ -43,6 +43,8 @@ function onDataReceived(text) {
     }
   } else if (text === "help\n") {
     help();
+  } else if (text === "tasks\n") {
+    tasks();
   } else {
     unknownCommand(text);
   }
@@ -94,6 +96,18 @@ function help() {
     "\n" +
     "hello <name>: Return a welcome message depending on the <name> input";
   console.log(list);
+}
+
+/**
+ * list all tasks
+ * @returns {voids}
+ */
+function tasks() {
+  var list = ["banana", "apple", "cherry", "lemon"];
+  let x = "<ol>";
+  for (let i = 0; i < list.length; i++) {
+    console.log(i + 1 + "- " + list[i]);
+  }
 }
 
 // The following line starts the application
