@@ -36,6 +36,8 @@ function onDataReceived(text) {
     quit();
   } else if (text === "hello\n") {
     hello();
+  } else if (text === "help\n") {
+    help();
   } else {
     unknownCommand(text);
   }
@@ -71,5 +73,9 @@ function quit() {
   process.exit();
 }
 
+function help() {
+  var list = "Please enter one of these commands: " + "quit,exit,help,hello";
+  console.log(list);
+}
 // The following line starts the application
 startApp("Abdulkader Freij");
