@@ -73,9 +73,14 @@ function quit() {
   process.exit();
 }
 
+/**
+ * Lists all the possible commands
+ * @returns {void}
+ */
 function help() {
   var list = "Please enter one of these commands: " + "quit,exit,help,hello";
   console.log(list);
 }
+
 // The following line starts the application
 startApp("Abdulkader Freij");
