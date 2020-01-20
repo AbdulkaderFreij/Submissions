@@ -45,6 +45,12 @@ function onDataReceived(text) {
     help();
   } else if (text === "tasks\n") {
     tasks();
+  } else if (arr[0] === "add") {
+    if (arr[1] == " ") {
+      add(arr[2]);
+    } else {
+      console.log("error");
+    }
   } else {
     unknownCommand(text);
   }
@@ -102,12 +108,16 @@ function help() {
  * list all tasks
  * @returns {voids}
  */
+var list = ["banana", "apple", "cherry", "lemon"];
 function tasks() {
-  var list = ["banana", "apple", "cherry", "lemon"];
-  let x = "<ol>";
   for (let i = 0; i < list.length; i++) {
     console.log(i + 1 + "- " + list[i]);
   }
+}
+
+function add(x) {
+  list.push(x);
+  tasks();
 }
 
 // The following line starts the application
