@@ -51,7 +51,19 @@ function onDataReceived(text) {
     } else {
       console.log("error");
     }
-  } else {
+  } else if (arr[0] === "remove") {
+    remove(arr[2]);
+  }
+
+  //   if (arr[2]==1){
+  //     remove(arr[2]);
+  //   }
+  //   else if (arr[2]==2){
+  //     remove(arr[2]);
+  //   }
+
+  // else remove(arr[2]);}
+  else {
     unknownCommand(text);
   }
 }
@@ -119,6 +131,21 @@ function add(x) {
   list.push(x);
   tasks();
 }
+
+function remove(x) {
+  if (x == 0) {
+    list.splice(-1, 1);
+  } else if (x == 1) {
+    list.splice(0, 1);
+  } else if (x == 2) {
+    list.splice(1, 1);
+  }
+  tasks();
+}
+
+// list.splice(0,1);
+
+// list.splice(1,1);
 
 // The following line starts the application
 startApp("Abdulkader Freij");
