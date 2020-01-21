@@ -138,7 +138,11 @@ function help() {
     "\n" +
     "remove <number>:" +
     "\t" +
-    "Remove a task depending on the <number> input, default remove the last task";
+    "Remove a task depending on the <number> input, default remove the last task" +
+    "\n" +
+    "edit <newtext>:" +
+    "\t\t" +
+    "Edit a task depending on the <newtext> input, default edit the last task";
   console.log(list);
 }
 
@@ -146,17 +150,33 @@ function help() {
  * list all tasks
  * @returns {voids}
  */
-var list = ["banana", "apple", "cherry", "lemon"];
+var list = [
+  { task: "banana", done: true },
+  { task: "strawberry", done: false },
+  { task: "papaya", done: false },
+  { task: "kiwi", done: true }
+];
 function tasks() {
   for (let i = 0; i < list.length; i++) {
-    console.log(i + 1 + "- " + list[i]);
+    let checkMark = "";
+    if (list[i].done) {
+      checkMark = "✓";
+    } else {
+      checkMark = " ";
+    }
+    console.log("[" + checkMark + "] " + (i + 1) + "- " + list[i].task);
   }
 }
 
 function add(x) {
   x.shift();
   x.shift();
-  list.push(x.join("").replace(/(\r\n|\n|\r)/gm, ""));
+  let newTaskDesc = x.join("").replace(/(\r\n|\n|\r)/gm, "");
+  let newTaskObject = {
+    task: newTaskDesc,
+    done: false
+  };
+  list.push(newTaskObject);
   console.log(list);
   tasks();
 }
@@ -175,12 +195,12 @@ function edit(id, newtext) {
   newtext.pop();
 
   if (!parseInt(id)) {
-    list[list.length - 1] = newtext.join("");
+    list[list.length - 1].task = newtext.join("");
     tasks();
   } else {
     newtext.shift();
     newtext.shift();
-    list.splice(parseInt(id) - 1, 1, newtext.join(""));
+    list[id - 1].task = newtext.join("");
 
     tasks();
   }
