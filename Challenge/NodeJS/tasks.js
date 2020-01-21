@@ -32,6 +32,7 @@ function startApp(name) {
  * @returns {void}
  */
 function onDataReceived(text) {
+  console.clear();
   var arr = text.split(/(\s+)/);
   if (text === "quit\n" || text === "exit\n") {
     quit();
@@ -46,13 +47,17 @@ function onDataReceived(text) {
   } else if (text === "tasks\n") {
     tasks();
   } else if (arr[0] === "add") {
-    if (arr[1] == " ") {
-      add(arr[2]);
+    if (arr[2] != "") {
+      add(arr);
     } else {
       console.log("error");
     }
   } else if (arr[0] === "remove") {
     remove(arr[2]);
+  } else if (arr[0] === "edit") {
+    if (arr[2] != " ") {
+      edit(arr[2], arr);
+    } else console.log("error");
   }
 
   //   if (arr[2]==1){
@@ -108,15 +113,32 @@ function help() {
   var list =
     "Please enter one of these commands: " +
     "\n" +
-    "quit/exit: Exits the program" +
+    "-----------------------------------" +
     "\n" +
-    "help: List all the possible commands" +
+    "quit/exit:" +
+    "\t" +
+    "\t" +
+    "Exits the program" +
     "\n" +
-    "hello <name>: Return a welcome message depending on the <name> input" +
+    "help:" +
+    "\t" +
+    "\t" +
+    "\t" +
+    "List all the possible commands" +
     "\n" +
-    "add <x>: Add a task <x> and store it in a list(array)" +
+    "hello <name>:" +
+    "\t" +
+    "\t" +
+    "Return a welcome message depending on the <name> input" +
     "\n" +
-    "remove <number>: Remove a task depending on the <number> input, default remove the last task";
+    "add <x>:" +
+    "\t" +
+    "\t" +
+    "Add a task <x> and store it in a list(array)" +
+    "\n" +
+    "remove <number>:" +
+    "\t" +
+    "Remove a task depending on the <number> input, default remove the last task";
   console.log(list);
 }
 
@@ -132,26 +154,37 @@ function tasks() {
 }
 
 function add(x) {
-  list.push(x);
+  x.shift();
+  x.shift();
+  list.push(x.join("").replace(/(\r\n|\n|\r)/gm, ""));
+  console.log(list);
   tasks();
 }
 
 function remove(x) {
-  if (x == 0) {
-    list.splice(-1, 1);
-    tasks();
-  } else if (x == 1) {
-    list.splice(0, 1);
-    tasks();
-  } else if (x == 2) {
-    list.splice(1, 1);
+  if (x == 0 || x <= 2) {
+    list.splice(x - 1, 1);
     tasks();
   } else console.log("number doesn't exist");
 }
 
-// list.splice(0,1);
+function edit(id, newtext) {
+  newtext.shift();
+  newtext.shift();
+  newtext.pop();
+  newtext.pop();
 
-// list.splice(1,1);
+  if (!parseInt(id)) {
+    list[list.length - 1] = newtext.join("");
+    tasks();
+  } else {
+    newtext.shift();
+    newtext.shift();
+    list.splice(parseInt(id) - 1, 1, newtext.join(""));
+
+    tasks();
+  }
+}
 
 // The following line starts the application
 startApp("Abdulkader Freij");
