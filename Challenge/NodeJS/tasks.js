@@ -58,6 +58,14 @@ function onDataReceived(text) {
     if (arr[2] != " ") {
       edit(arr[2], arr);
     } else console.log("error");
+  } else if (arr[0] === "check") {
+    if (arr[2] != "") {
+      check(arr[2]);
+    } else console.log("error");
+  } else if (arr[0] === "uncheck") {
+    if (arr[2] != "") {
+      uncheck(arr[2]);
+    } else console.log("error");
   }
 
   //   if (arr[2]==1){
@@ -204,6 +212,16 @@ function edit(id, newtext) {
 
     tasks();
   }
+}
+
+function check(y) {
+  list[y - 1].done = true;
+
+  tasks();
+}
+function uncheck(z) {
+  list[z - 1].done = false;
+  tasks();
 }
 
 // The following line starts the application
