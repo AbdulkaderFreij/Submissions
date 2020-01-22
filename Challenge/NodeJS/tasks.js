@@ -8,7 +8,36 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
+
+const fs = require("fs");
+
+let myData = "";
+var list = [];
 function startApp(name) {
+  if (process.argv.length === 2) {
+    myData = "./database.json";
+  } else {
+    myData = process.argv[2];
+  }
+  if (fs.existsSync(myData)) {
+    fs.readFile(myData, (err, data) => {
+      if (err) {
+        throw err;
+      }
+      list = JSON.parse(data);
+    });
+  } else {
+    let data = JSON.stringify(list);
+    fs.appendFileSync(myData, data);
+
+    fs.readFileSync(myData, (err, data) => {
+      if (err) {
+        throw err;
+      }
+      list = JSON.parse(data);
+    });
+  }
+
   process.stdin.resume();
   process.stdin.setEncoding("utf8");
   process.stdin.on("data", onDataReceived);
@@ -66,6 +95,9 @@ function onDataReceived(text) {
     if (arr[2] != "") {
       uncheck(arr[2]);
     } else console.log("error");
+  } else if (text === "quit" || text === "exit") {
+    persist(list);
+    quit();
   }
 
   //   if (arr[2]==1){
@@ -150,7 +182,16 @@ function help() {
     "\n" +
     "edit <newtext>:" +
     "\t\t" +
-    "Edit a task depending on the <newtext> input, default edit the last task";
+    "Edit a task depending on the <newtext> input, default edit the last task" +
+    "\n" +
+    "check <y>:" +
+    "\t\t" +
+    "change task <y> to done" +
+    "\n" +
+    "uncheck <z>:" +
+    "\t\t" +
+    "change task <z> to not done";
+
   console.log(list);
 }
 
@@ -158,12 +199,7 @@ function help() {
  * list all tasks
  * @returns {voids}
  */
-var list = [
-  { task: "banana", done: true },
-  { task: "strawberry", done: false },
-  { task: "papaya", done: false },
-  { task: "kiwi", done: true }
-];
+
 function tasks() {
   for (let i = 0; i < list.length; i++) {
     let checkMark = "";
@@ -215,15 +251,24 @@ function edit(id, newtext) {
 }
 
 function check(y) {
-  list[y - 1].done = true;
+  if (parseInt(y)) {
+    list[y - 1].done = true;
 
-  tasks();
+    tasks();
+  } else console.log("error");
 }
+
 function uncheck(z) {
-  list[z - 1].done = false;
-  tasks();
+  if (parseInt(z)) {
+    list[z - 1].done = false;
+    tasks();
+  } else console.log("error");
 }
 
+function persist(toBeSaved) {
+  let data = JSON.stringify(toBeSaved);
+  fs.writeFileSync(myData, data);
+}
 // The following line starts the application
 startApp("Abdulkader Freij");
 
