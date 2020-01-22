@@ -22,13 +22,11 @@ app.get("/search", (req, res) => {
   if (id) {
     res.json({ status: 200, message: "ok", data: id });
   } else {
-    res
-      .status(500)
-      .json({
-        status: 500,
-        error: true,
-        message: "you have to provide a search"
-      });
+    res.status(500).json({
+      status: 500,
+      error: true,
+      message: "you have to provide a search"
+    });
   }
 });
 
@@ -50,7 +48,27 @@ const movies = [
 ];
 
 app.get("/movies/get", (req, res) => {
-  res.json({ status: 200, data: movies });
+  res.json({ status: 200, message: "ok", data: movies });
+});
+
+app.get("/movies/get/by-date", (req, res) => {
+  const sortedByDate = movies.sort((a, b) => b.year - a.year);
+
+  res.json({ status: 200, message: "ok", data: sortedByDate });
+});
+
+app.get("/movies/get/by-rating", (req, res) => {
+  const sortedByRate = movies.sort((a, b) => b.rating - a.rating);
+
+  res.json({ status: 200, message: "ok", data: sortedByRate });
+});
+
+app.get("/movies/get/by-title", (req, res) => {
+  const sortedByTitle = movies.sort((a, b) =>
+    a.title.localeCompare(b.title, "es", { sensitivity: "base" })
+  );
+
+  res.json({ status: 200, message: "ok", data: sortedByTitle });
 });
 
 app.get("/movies/add", (req, res) => {
