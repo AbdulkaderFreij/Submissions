@@ -10,7 +10,6 @@
  */
 
 const fs = require("fs");
-
 let myData = "";
 var list = [];
 function startApp(name) {
@@ -141,6 +140,7 @@ function hello(name) {
  * @returns {void}
  */
 function quit() {
+  persist(list);
   console.log("Quitting now, goodbye!");
   process.exit();
 }
