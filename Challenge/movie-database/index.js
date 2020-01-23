@@ -89,8 +89,8 @@ app.get("/movies/add?", (req, res) => {
       error: true,
       message: "you cannot create a movie without providing a title"
     });
-  } else if (!parseInt(year)) {
-    error.push({
+  } else if (!year.match(/^-{0,1}\d+$/)) {
+    errors.push({
       status: 403,
       error: true,
       message: "year should be a number"
