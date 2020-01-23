@@ -126,8 +126,8 @@ app.get("/movies/edit", (req, res) => {
 
 app.get("/movies/delete/id/:id?", (req, res) => {
   const id = req.params.id;
-  if (id <= movies.length && id > 0) {
-    movies.splice(id - 1, 1);
+  if (id < movies.length && id >= 0) {
+    movies.splice(id, 1);
     res.json({ status: 200, message: "ok", data: movies });
   } else
     res.json({
@@ -139,14 +139,43 @@ app.get("/movies/delete/id/:id?", (req, res) => {
 
 app.get("/movies/get/id/:id?", (req, res) => {
   const id = req.params.id;
-  if (id <= movies.length && id > 0) {
-    res.json({ status: 200, message: "ok", data: movies[id - 1] });
+  if (id < movies.length && id >= 0) {
+    res.json({ status: 200, message: "ok", data: movies[id] });
   } else
     res.status(500).json({
       status: 404,
       error: true,
       message: "the movie <ID> does not exist"
     });
+});
+
+app.get("/movies/update/:id?", (req, res) => {
+  const id = req.params.id;
+  const title = req.query.title;
+  const rating = req.query.rating;
+  const year = req.query.year;
+  if (id < movies.length && id >= 0) {
+    movies[id].title = title;
+
+    if (year.length === 4) {
+      movies[id].year = parseInt(year);
+    } else
+      res.json({ status: 200, message: "year should be a number of 4 digits" });
+    if (rating <= 10) {
+      movies[id].rating = parseFloat(rating);
+    } else
+      res.json({
+        status: 200,
+        message: "rating should be a number less than 10"
+      });
+    res.json({ status: 200, message: "ok", data: movies });
+  } else {
+    res.status(500).json({
+      status: 500,
+      error: true,
+      message: "the movie <ID> does not exist"
+    });
+  }
 });
 
 app.listen(PORT, () => {
