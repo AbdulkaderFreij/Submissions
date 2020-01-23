@@ -71,8 +71,53 @@ app.get("/movies/get/by-title", (req, res) => {
   res.json({ status: 200, message: "ok", data: sortedByTitle });
 });
 
-app.get("/movies/add", (req, res) => {
-  res.json({ status: 200, data: "I can add movies!!" });
+app.get("/movies/add?", (req, res) => {
+  const year = req.query.year;
+  const title = req.query.title;
+  const rating = req.query.rating;
+
+  let errors = [];
+  if (!year) {
+    errors.push({
+      status: 403,
+      error: true,
+      message: "you cannot create a movie without providing a year"
+    });
+  } else if (!title) {
+    errors.push({
+      status: 403,
+      error: true,
+      message: "you cannot create a movie without providing a title"
+    });
+  } else if (!parseInt(year)) {
+    error.push({
+      status: 403,
+      error: true,
+      message: "year should be a number"
+    });
+  } else if (parseInt(title)) {
+    errors.push({
+      status: 403,
+      error: true,
+      message: "title should be a string"
+    });
+  } else if (year.length !== 4) {
+    errors.push({
+      status: 403,
+      error: true,
+      message: "year should be 4 digits"
+    });
+  }
+
+  if (errors.length > 0) {
+    res.json({ status: 403, error: true, message: errors });
+  } else if (!rating) {
+    movies.push({ title: title, year: year, rating: 4 });
+    res.json({ title: title, year: year, rating: 4 });
+  } else {
+    movies.push({ title: title, year: year, rating: rating });
+    res.json({ title: title, year: year, rating: rating });
+  }
 });
 
 app.get("/movies/edit", (req, res) => {
@@ -88,13 +133,11 @@ app.get("/movies/get/id/:id?", (req, res) => {
   if (id <= movies.length && id > 0) {
     res.json({ status: 200, message: "ok", data: movies[id - 1] });
   } else
-    res
-      .status(500)
-      .json({
-        status: 404,
-        error: true,
-        message: "the movie <ID> does not exist"
-      });
+    res.status(500).json({
+      status: 404,
+      error: true,
+      message: "the movie <ID> does not exist"
+    });
 });
 
 app.listen(PORT, () => {
