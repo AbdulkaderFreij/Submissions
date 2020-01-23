@@ -124,8 +124,17 @@ app.get("/movies/edit", (req, res) => {
   res.json({ status: 200, data: "Do you have any update?" });
 });
 
-app.get("/movies/delete", (req, res) => {
-  res.json({ status: 200, data: "Are you sure you want to delete the movie?" });
+app.get("/movies/delete/id/:id?", (req, res) => {
+  const id = req.params.id;
+  if (id <= movies.length && id > 0) {
+    movies.splice(id - 1, 1);
+    res.json({ status: 200, message: "ok", data: movies });
+  } else
+    res.json({
+      status: 404,
+      error: true,
+      message: "the movie <ID> does not exist"
+    });
 });
 
 app.get("/movies/get/id/:id?", (req, res) => {
