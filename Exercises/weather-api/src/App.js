@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import Search from "./components/Search";
+
+import SayHi, { SayHello } from "./components/WeatherItem";
+import fakeWeatherData from "./fakeWeatherData.json";
+
 import "./App.css";
 import Search from "./Search.js";
 import CurrentWeather from "./CurrentWeather.js";
@@ -16,6 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
       weather: [],
       input: "Beirut"
     };
@@ -111,6 +117,22 @@ class App extends Component {
             </div>
           </div>
         </main>
+=======
+      name: "Karim"
+    };
+  }
+
+  handleInputChange = value => {
+    this.setState({ name: value });
+  };
+
+  render() {
+    return (
+      <div className="app">
+        <SayHi />
+        <SayHello color="black" name={this.state.name} />
+        <Search handleInput={this.handleInputChange} />
+>>>>>>> dbfca94249132279d87cdc433793d8f550b80fc5
       </div>
     );
   }

@@ -50,6 +50,7 @@ input:focus {
 }
 
 /* Current weather */
+<<<<<<< HEAD
 .image-container {
   position: relative;
   overflow: hidden;
@@ -119,4 +120,9 @@ figcaption {
   .app {
     background-color: #9ccef4;
   }
+=======
+
+div {
+  border: 5px solid red;
+>>>>>>> dbfca94249132279d87cdc433793d8f550b80fc5
 }
